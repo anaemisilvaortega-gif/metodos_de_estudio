@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark" data-font-size="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mindu — Encuentra tu forma de aprender</title>
+  <meta name="description" content="Aplicación educativa interactiva, moderna y personalizada para descubrir cómo estudiar de manera más efectiva, concentrarse mejor y aprender sin juicios.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div id="app-container">
+    <!-- BARRA LATERAL DE NAVEGACIÓN -->
+    <aside class="sidebar" id="sidebar" aria-label="Navegación principal de Mindu">
+      <div class="sidebar-header">
+        <a class="brand-badge" id="nav-brand" href="#screen-home">
+          <div class="brand-icon-box" aria-hidden="true">⚡</div>
+          <div class="brand-name">
+            Mindu
+            <span class="brand-sub">v2.0</span>
+          </div>
+        </a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Espacio Personal</div>
+        <a class="nav-item active" data-screen="home" href="#home">
+          <span class="nav-icon">🏠</span>
+          <span>Inicio</span>
+        </a>
+        <a class="nav-item" data-screen="profile" href="#profile">
+          <span class="nav-icon">👤</span>
+          <span>Mi Perfil de Estudio</span>
+        </a>
+
+        <div class="nav-section-title">Estrategias & Creación</div>
+        <a class="nav-item" data-screen="methods" href="#methods">
+          <span class="nav-icon">📚</span>
+          <span>Explorar Métodos</span>
+        </a>
+        <a class="nav-item" data-screen="converter" href="#converter">
+          <span class="nav-icon">✨</span>
+          <span>Convierte cualquier tema</span>
+        </a>
+        <a class="nav-item" data-screen="practice" href="#practice">
+          <span class="nav-icon">🎯</span>
+          <span>Practicar y Recordar</span>
+        </a>
+
+        <div class="nav-section-title">Foco & Organización</div>
+        <a class="nav-item" data-screen="focus" href="#focus">
+          <span class="nav-icon">⏱️</span>
+          <span>Modo Concentración</span>
+        </a>
+        <a class="nav-item" data-screen="planner" href="#planner">
+          <span class="nav-icon">🗓️</span>
+          <span>Mi Planificador</span>
+        </a>
+        <a class="nav-item" data-screen="progress" href="#progress">
+          <span class="nav-icon">📊</span>
+          <span>Mi Progreso</span>
+        </a>
+
+        <div class="nav-section-title">Preferencias</div>
+        <a class="nav-item" data-screen="settings" href="#settings">
+          <span class="nav-icon">⚙️</span>
+          <span>Accesibilidad & Ajustes</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="user-quick-status">
+          <div class="status-indicator" title="Enfoque activo"></div>
+          <div>
+            <div style="font-weight: 600; color: var(--text-main);" id="sidebar-user-tag">Estudiante Mindu</div>
+            <div style="font-size: 11px; color: var(--text-dim);" id="sidebar-profile-tag">Perfil Modular</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- WRAPPER PRINCIPAL -->
+    <div class="main-wrapper">
+      <!-- TOPBAR -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Abrir menú lateral">☰</button>
+          <div class="page-breadcrumb">
+            <span>MINDU</span> / <span id="topbar-breadcrumb-title">INICIO</span>
+          </div>
+        </div>
+
+        <div class="topbar-actions">
+          <button class="btn btn-secondary btn-sm" id="topbar-quick-focus-btn">
+            <span>⏱️</span>
+            <span>Foco Rápido</span>
+          </button>
+          <button class="btn btn-primary btn-sm" id="topbar-convert-btn">
+            <span>✨</span>
+            <span>Nuevo Tema</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- ÁREA DE PANTALLAS DINÁMICAS -->
+      <main class="page-content" id="main-content">
+
+        <!-- ==========================================
+             PANTALLA 1: INICIO (DASHBOARD)
+             ========================================== -->
+        <section id="screen-home" class="screen-view active" aria-labelledby="home-title">
+          <div class="welcome-hero">
+            <div class="hero-quote">
+              <span>✦</span>
+              <span>«No eres un mal estudiante por no aprender al mismo ritmo que los demás. Solo necesitas encontrar una mejor manera de estudiar».</span>
+            </div>
+            <h1 class="hero-headline" id="home-greeting">¡Hola! Encuentra tu forma de aprender.</h1>
+            <p class="hero-subtext">
+              Tu capacidad no se define por cómo estudias hoy. Descubre, experimenta y construye tu propia manera de aprender: combina métodos visuales, lectoescritura, resúmenes narrados y pausas activas adaptadas a tu energía.
+            </p>
+            <div class="hero-actions">
+              <button class="btn btn-primary btn-lg" id="btn-hero-test">
+                <span>🧠</span>
+                <span>Evaluar mi Perfil de Estudio</span>
+              </button>
+              <button class="btn btn-secondary btn-lg" id="btn-hero-convert">
+                <span>✨</span>
+                <span>Convertir un Tema Ahora</span>
+              </button>
+              <button class="btn btn-secondary btn-lg" id="btn-hero-explore">
+                <span>📚</span>
+                <span>Ver Biblioteca de Métodos</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Métricas directas y respetuosas -->
+          <div class="grid-4" style="margin-bottom: 28px;">
+            <div class="stat-card">
+              <div class="stat-icon">⏱️</div>
+              <div>
+                <div class="stat-number" id="home-stat-focus">1.9 h</div>
+                <div class="stat-label">Tiempo de Foco Registrado</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon" style="background: rgba(139, 92, 246, 0.15); color: var(--color-secondary);">🗂️</div>
+              <div>
+                <div class="stat-number" id="home-stat-materials">4</div>
+                <div class="stat-label">Temas Convertidos</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon" style="background: rgba(6, 182, 212, 0.15); color: var(--color-accent-cyan);">🎯</div>
+              <div>
+                <div class="stat-number" id="home-stat-due">3</div>
+                <div class="stat-label">Tarjetas por Repasar Hoy</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon" style="background: rgba(16, 185, 129, 0.15); color: var(--color-success);">🌱</div>
+              <div>
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Espacio Libre de Juicios</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Rutas Recomendadas y Objetivos de Hoy -->
+          <div class="grid-2">
+            <div class="card">
+              <div class="card-header">
+                <h2 class="card-title"><span>🎯</span> Objetivo del Día sugerido</h2>
+                <span class="academic-tag" id="home-energy-tag">Energía Media</span>
+              </div>
+              <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 16px;" id="home-daily-suggestion">
+                Haz un bloque de 20 minutos con una sola tarea concreta (por ejemplo, resumir las causas de tu tema pendiente) y celebra dar el primer paso.
+              </p>
+              <div style="display: flex; gap: 10px;">
+                <button class="btn btn-primary btn-sm" id="btn-home-start-block">Iniciar Bloque Ahora</button>
+                <button class="btn btn-secondary btn-sm" id="btn-home-fivemin">Regla de los 5 Minutos</button>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <h2 class="card-title"><span>💡</span> Descubre tu Método para hoy</h2>
+                <a href="#methods" class="academic-tag" style="text-decoration: none;">Ver todos (30+)</a>
+              </div>
+              <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 12px;">
+                ¿Con qué estás lidiando en este momento?
+              </p>
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <button class="btn btn-secondary btn-sm" style="text-align: left; justify-content: flex-start;" onclick="window.MinduApp.openRecommendationModal('dense')">
+                  📖 "Tengo un texto densísimo y no entiendo nada" ➔ Sugerencia Feynman + Cornell
+                </button>
+                <button class="btn btn-secondary btn-sm" style="text-align: left; justify-content: flex-start;" onclick="window.MinduApp.openRecommendationModal('forget')">
+                  🧠 "Olvido lo que estudié al día siguiente" ➔ Active Recall + Flashcards
+                </button>
+                <button class="btn btn-secondary btn-sm" style="text-align: left; justify-content: flex-start;" onclick="window.MinduApp.openRecommendationModal('distracted')">
+                  ⚡ "Me distraigo cada 5 minutos" ➔ Pomodoro Flexible + Body Doubling
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             PANTALLA 2: MI PERFIL DE ESTUDIO
+             ========================================== -->
+        <section id="screen-profile" class="screen-view" aria-labelledby="profile-title">
+          <div class="page-header">
+            <div class="page-title-group">
+              <h1 id="profile-title">Mi Perfil de Aprendizaje</h1>
+              <p>Tu diagnóstico personalizado para experimentar, medir qué métodos funcionan mejor para ti y adaptar tu entorno.</p>
+            </div>
+            <button class="btn btn-secondary" id="btn-retake-assessment">
+              <span>🔄</span>
+              <span>Rehacer Evaluación (9 preguntas)</span>
+            </button>
+          </div>
+
+          <div id="profile-display-area">
+            <!-- Renderizado dinámico desde app.js -->
+          </div>
+        </section>
+
+        <!-- ==========================================
+             PANTALLA 3: EXPLORAR MÉTODOS (BIBLIOTECA)
+             ========================================== -->
+        <section id="screen-methods" class="screen-view" aria-labelledby="methods-title">
+          <div class="page-header">
+            <div class="page-title-group">
+              <h1 id="methods-title">Biblioteca Interactiva de Métodos</h1>
+              <p>Más de 30 estrategias organizadas por categorías con explicaciones sencillas, instrucciones paso a paso, ejemplos prácticos y plantillas listas para usar.</p>
+            </div>
+          </div>
+
+          <!-- Filtros y Buscador -->
+          <div class="filter-bar">
+            <div class="search-box">
+              <span class="search-icon-pos">🔍</span>
+              <input type="text" id="methods-search-input" class="form-control" placeholder="Buscar por nombre, materia o dificultad..." aria-label="Buscar métodos">
+            </div>
+            <button class="category-pill active" data-cat="all">Todos los Métodos</button>
+            <button class="category-pill" data-cat="visual">Visuales y Creativos</button>
+            <button class="category-pill" data-cat="reading">Lectura y Escritura</button>
+            <button class="category-pill" data-cat="audio">Auditivos y Audiovisuales</button>
+            <button class="category-pill" data-cat="memory">Memorizar y Comprender</button>
+            <button class="category-pill" data-cat="focus">Estudia a tu Ritmo</button>
+            <button class="category-pill" data-cat="organization">Organización</button>
+          </div>
+
+          <!-- Grid de Métodos -->
+          <div class="grid-3" id="methods-grid-container">
+            <!-- Renderizado dinámico -->
+          </div>
+        </section>
+
+        <!-- ==========================================
+             PANTALLA 4: CONVIERTE CUALQUIER TEMA
+             ========================================== -->
+        <section id="screen-converter" class="screen-view" aria-labelledby="converter-title">
+          <div class="page-header">
+            <div class="page-title-group">
+              <h1 id="converter-title">Herramienta «Convierte cualquier tema»</h1>
+              <p>Introduce cualquier tema, pega tus notas de clase o elige un ejemplo, y transfórmalo al instante en 10 formatos prácticos de estudio.</p>
+            </div>
+          </div>
+
+          <div class="converter-workspace">
+            <!-- Columna Izquierda: Input y selección -->
+            <div class="card converter-input-card">
+              <div class="card-header">
+                <h2 class="card-title"><span>✍️</span> Fuente de Estudio</h2>
+              </div>
+
+              <!-- Presets rápidos -->
+              <div class="form-group">
+                <label class="form-label">Ejemplos predeterminados:</label>
+                <div class="preset-chip-group">
+                  <span class="preset-chip" data-preset="fotosintesis">La Fotosíntesis</span>
+                  <span class="preset-chip" data-preset="revolucion-francesa">Revolución Francesa</span>
+                  <span class="preset-chip" data-preset="teorema-pitagoras">Teorema de Pitágoras</span>
+                  <span class="preset-chip" data-preset="inteligencia-artificial">Inteligencia Artificial</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="converter-topic-title">Título del tema:</label>
+                <input type="text" id="converter-topic-title" class="form-control" placeholder="Ej: Leyes de Newton, Genética mendeliana...">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="converter-raw-text">Apuntes, texto o temario a transformar:</label>
+                <textarea id="converter-raw-text" class="form-control" rows="8" placeholder="Pega aquí los apuntes, un artículo o el resumen de tu libro de texto..."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">¿En qué formato deseas transformarlo?</label>
+                <div class="conversion-mode-grid">
+                  <button class="mode-btn active" data-mode="summary">📄 Resumen estructurado</button>
+                  <button class="mode-btn" data-mode="mindmap">🧠 Mapa Mental</button>
+                  <button class="mode-btn" data-mode="conceptmap">🕸️ Mapa Conceptual</button>
+                  <button class="mode-btn" data-mode="flashcards">🃏 Flashcards de estudio</button>
+                  <button class="mode-btn" data-mode="quiz">❓ Cuestionario explicado</button>
+                  <button class="mode-btn" data-mode="podcast">🎙️ Guion de Podcast + Audio</button>
+                  <button class="mode-btn" data-mode="timeline">⏳ Línea de Tiempo</button>
+                  <button class="mode-btn" data-mode="feynman">💡 Técnica Feynman</button>
+                  <button class="mode-btn" data-mode="microlessons">💊 Micro-Lecciones (3 pasos)</button>
+                  <button class="mode-btn" data-mode="examprep">🎯 Guía Exprés para Examen</button>
+                </div>
+              </div>
+
+              <button class="btn btn-primary btn-lg" id="btn-run-conversion" style="width: 100%;">
+                <span>⚡</span>
+                <span>Transformar Contenido</span>
+              </button>
+            </div>
+
+            <!-- Columna Derecha: Resultado Interactivo -->
+            <div class="card converter-output-card">
+              <div class="output-header">
+                <div>
+                  <h3 id="converter-output-title" style="font-size: 18px; font-weight: 700; color: var(--text-main);">Resultado Generado</h3>
+                  <span class="academic-tag" id="converter-output-badge">Resumen</span>
+                </div>
+                <div style="display: flex; gap: 8px;">
+                  <button class="btn btn-secondary btn-sm" id="btn-copy-output" title="Copiar texto">📋 Copiar</button>
+                  <button class="btn btn-secondary btn-sm" id="btn-export-markdown" title="Descargar Markdown">💾 Exportar</button>
+                  <button class="btn btn-secondary btn-sm" id="btn-print-output" title="Imprimir">🖨️ Imprimir</button>
+                  <button class="btn btn-kind btn-sm" id="btn-save-material">⭐ Guardar</button>
+                </div>
+              </div>
+
+              <div class="output-content-area" id="converter-output-body">
+                <!-- Salida dinámica -->
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             PANTALLA 5: MODO CONCENTRACIÓN Y «ESTUDIA A TU RITMO»
+             ========================================== -->
+        <section id="screen-focus" class="screen-view" aria-labelledby="focus-title">
+          <div class="page-header">
+            <div class="page-title-group">
+              <h1 id="focus-title">Modo Concentración «Estudia a tu Ritmo»</h1>
+              <p>Diseñado especialmente para cerebros sensibles a la distracción, fatiga o TDAH. Temporizadores amables, sonidos ambientales, compañero virtual y reinicio sin culpa.</p>
+            </div>
+            <button class="btn btn-kind" id="btn-kind-reset-top">
+              <span>🌱</span>
+              <span>Reinicio sin Culpa</span>
+            </button>
+          </div>
+
+          <div class="focus-layout">
+            <!-- Temporizador Central -->
+            <div class="card focus-timer-card">
+              <div class="current-task-pill" id="focus-current-task-display">
+                <span>🎯 Tarea activa:</span>
+                <span id="focus-task-name" style="font-weight: 600;">Lectura y toma de notas</span>
+                <button id="btn-edit-focus-task" style="background: none; border: none; color: var(--color-primary); cursor: pointer; margin-left: 8px;">✏️</button>
+              </div>
+
+              <!-- Reloj SVG circular -->
+              <div class="timer-circle-container">
+                <svg class="timer-svg" viewBox="0 0 260 260">
+                  <circle class="timer-bg-path" cx="130" cy="130" r="120"></circle>
+                  <circle class="timer-progress-path" id="timer-svg-progress" cx="130" cy="130" r="120"></circle>
+                </svg>
+                <div style="text-align: center; z-index: 2;">
+                  <div class="timer-digits" id="timer-display-digits">20:00</div>
+                  <div class="timer-mode-tag" id="timer-mode-label">SESIÓN DE FOCO</div>
+                </div>
+              </div>
+
+              <!-- Controles de temporizador -->
+              <div class="timer-controls-row">
+                <button class="btn btn-primary btn-lg" id="btn-timer-start-pause">
+                  <span id="timer-play-icon">▶</span>
+                  <span id="timer-play-label">Comenzar</span>
+                </button>
+                <button class="btn btn-secondary btn-lg" id="btn-timer-reset">
+                  <span>🔄</span>
+                  <span>Reiniciar</span>
+                </button>
+                <button class="btn btn-secondary btn-lg" id="btn-timer-fivemin" title="Regla de los 5 minutos">
+                  <span>⚡ 5 min</span>
+                </button>
+              </div>
+
+              <!-- Selector de Duración Rápido -->
+              <div style="margin-top: 24px; display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;">
+                <span style="font-size: 12px; color: var(--text-dim); align-self: center; font-family: var(--font-mono);">Ajustar:</span>
+                <button class="btn btn-secondary btn-sm timer-preset-btn" data-work="10" data-break="3">10 / 3 min</button>
+                <button class="btn btn-secondary btn-sm timer-preset-btn active" data-work="20" data-break="5">20 / 5 min</button>
+                <button class="btn btn-secondary btn-sm timer-preset-btn" data-work="25" data-break="5">25 / 5 min</button>
+                <button class="btn btn-secondary btn-sm timer-preset-btn" data-work="40" data-break="10">40 / 10 min</button>
+              </div>
+            </div>
+
+            <!-- Panel Lateral de Herramientas de Concentración -->
+            <div class="focus-sidebar-card">
+              <!-- Body Doubling Virtual -->
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title"><span>👥</span> Body Doubling</h3>
+                  <button class="btn btn-secondary btn-sm" id="btn-switch-buddy" title="Cambiar de compañero">Cambiar</button>
+                </div>
+                <div class="buddy-card">
+                  <div class="buddy-avatar" id="buddy-avatar">👨‍💻</div>
+                  <div>
+                    <div class="buddy-name" id="buddy-name">Alex</div>
+                    <div class="buddy-task" id="buddy-task">Repasando Biología a tu lado en silencio</div>
+                    <span class="badge badge-green" style="margin-top: 4px;" id="buddy-status">En foco compartido</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Generador de Sonido Ambiental Sintético (Web Audio API) -->
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title"><span>🎧</span> Sonido de Enfoque</h3>
+                  <button class="btn btn-secondary btn-sm" id="btn-stop-audio">Mudo</button>
+                </div>
+                <div class="sound-selector-grid">
+                  <button class="sound-btn" data-sound="rain">🌧️ Lluvia Suave</button>
+                  <button class="sound-btn" data-sound="binaural">🧠 Ondas Alfa 10Hz</button>
+                  <button class="sound-btn" data-sound="whitenoise">📻 Ruido Marrón</button>
+                  <button class="sound-btn" data-sound="ambient">🎵 Pad Armónico</button>
+                </div>
+                <div style="margin-top: 12px; display: flex; align-items: center; gap: 8px;">
+                  <span style="font-size: 12px; color: var(--text-dim);">Vol:</span>
+                  <input type="range" id="sound-volume-slider" min="0" max="1" step="0.05" value="0.3" style="width: 100%; accent-color: var(--color-primary);" aria-label="Volumen del sonido">
+                </div>
+              </div>
+
+              <!-- Pausa Activa y Respiración Guiada -->
+              <div class="breathing-box">
+                <h3 style="font-size: 14px; font-weight: 700; color: var(--text-main);">Pausa Activa: Respiración 4-4-4-4</h3>
+                <div class="breathing-circle" aria-label="Círculo de respiración">
+                  <span style="font-size: 12px; font-weight: 700; color: #FFFFFF;" id="breathing-cue">Inhala</span>
+                </div>
+                <p style="font-size: 12px; color: var(--text-muted);">
+                  Inhala en 4s cuando el círculo crezca, sostén 4s y exhala en 4s al contraerse.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             PANTALLA 6: MI PLANIFICADOR
+             ========================================== -->
+        <section id="screen-planner" class="screen-view" aria-labelledby="planner-title">
+          <div class="page-header">
+            <div class="page-title-group">
+              <h1 id="planner-title">Mi Planificador Inteligente</h1>
+              <p>Organización realista y sin acumulación de culpa. Establece metas pequeñas, ten en cuenta tu energía del día y reorganiza tus tareas cuando surjan imprevistos.</p>
+            </div>
+            <button class="btn btn-kind" id="btn-guilt-free-reschedule">
+              <span>🌱</span>
+              <span>Reorganizar sin Culpa</span>
+            </button>
+          </div>
+
+          <div class="planner-layout">
+            <!-- Tareas y Plan del Día -->
+            <div>
+              <!-- Generador de Itinerario de Hoy -->
+              <div class="card" style="margin-bottom: 24px;">
+                <div class="card-header">
+                  <h2 class="card-title"><span>⚡</span> Generar Plan para Hoy</h2>
+                </div>
+                <div class="grid-3" style="margin-bottom: 14px;">
+                  <div>
+                    <label class="form-label" for="planner-available-minutes">Tiempo disponible hoy:</label>
+                    <select id="planner-available-minutes" class="form-control">
+                      <option value="30">30 minutos (Express)</option>
+                      <option value="60" selected>1 hora (Balanceado)</option>
+                      <option value="90">1 hora y media</option>
+                      <option value="120">2 horas (Sesión profunda)</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="form-label" for="planner-energy-select">Nivel de energía de hoy:</label>
+                    <select id="planner-energy-select" class="form-control">
+                      <option value="baja">🔋 Baja (Modo suave 20%)</option>
+                      <option value="media" selected>🔋🔋 Media (Estándar)</option>
+                      <option value="alta">🔋🔋🔋 Alta (Gran motivación)</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="form-label" for="planner-subject-input">Materia clave:</label>
+                    <input type="text" id="planner-subject-input" class="form-control" placeholder="Ej: Matemáticas">
+                  </div>
+                </div>
+                <button class="btn btn-primary btn-sm" id="btn-generate-daily-plan">Calcular Itinerario Realista</button>
+
+                <!-- Contenedor del itinerario generado -->
+                <div id="planner-generated-schedule" style="margin-top: 16px; display: none;"></div>
+              </div>
+
+              <!-- Lista de Tareas Pendientes -->
+              <div class="card">
+                <div class="card-header">
+                  <h2 class="card-title"><span>📝</span> Mis Tareas y Metas Pequeñas</h2>
+                  <button class="btn btn-secondary btn-sm" id="btn-open-add-task-modal">+ Nueva Tarea</button>
+                </div>
+                <div class="task-list" id="planner-tasks-container">
+                  <!-- Renderizado dinámico -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Calendario de Exámenes y Entregas -->
+            <div>
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title"><span>🚨</span> Próximos Exámenes</h3>
+                  <button class="btn btn-secondary btn-sm" id="btn-add-exam-btn">+ Añadir</button>
+                </div>
+                <div id="planner-exams-container" style="display: flex; flex-direction: column; gap: 10px;">
+                  <!-- Renderizado dinámico -->
+                </div>
+              </div>
+
+              <!-- Regla de Prioridad Eisenhower -->
+              <div class="card" style="margin-top: 20px;">
+                <h3 class="card-title" style="margin-bottom: 8px;"><span>⚖️</span> Consejo de Priorización</h3>
+                <p style="font-size: 13px; color: var(--text-muted);">
+                  Dedica tu primera hora a lo <strong>Importante pero no Urgente</strong> (estudiar con calma y comprender). Evitarás vivir siempre apagando fuegos de última hora con ansiedad.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             PANTALLA 7: PRACTICAR Y RECORDAR
+             ========================================== -->
+        <section id="screen-practice" class="screen-view" aria-labelledby="practice-title">
+          <div class="page-header">
+            <div class="page-title-group">
+              <h1 id="practice-title">Practicar y Recordar (Active Recall)</h1>
+              <p>Releer es pasivo; recordar activamente consolida la memoria. Practica con flashcards de repetición espaciada o ponte a prueba con cuestionarios argumentados.</p>
+            </div>
+          </div>
+
+          <div class="tabs-nav">
+            <button class="tab-btn active" data-tab="tab-flashcards">🃏 Flashcards Interactivas</button>
+            <button class="tab-btn" data-tab="tab-quiz">❓ Cuestionario de Práctica</button>
+            <button class="tab-btn" data-tab="tab-feynman-studio">💡 Taller Feynman</button>
+          </div>
+
+          <!-- TAB 1: FLASHCARDS -->
+          <div id="tab-flashcards" class="practice-tab-content">
+            <div class="flashcard-stage">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                <span class="academic-tag" id="fc-counter-tag">Tarjeta 1 de 5</span>
+                <span style="font-size: 13px; color: var(--text-muted);" id="fc-topic-label">Biología Celular</span>
+              </div>
+
+              <!-- Tarjeta 3D interactiva -->
+              <div class="flashcard-3d" id="interactive-flashcard">
+                <div class="flashcard-face flashcard-front">
+                  <span class="academic-tag" style="align-self: flex-start;">Pregunta</span>
+                  <div class="flashcard-text" id="fc-front-text">¿Cuál es la función principal de la Mitocondria?</div>
+                  <div style="font-size: 12px; color: var(--text-dim); text-align: center;">Haz clic en la tarjeta para voltear ↻</div>
+                </div>
+                <div class="flashcard-face flashcard-back">
+                  <span class="academic-tag" style="align-self: flex-start; background: rgba(59, 130, 246, 0.2);">Respuesta</span>
+                  <div class="flashcard-text" id="fc-back-text">Actúa como la central energética celular: realiza la respiración celular y sintetiza ATP.</div>
+                  <div style="font-size: 12px; color: var(--text-dim); text-align: center;">¿Qué tal la recordaste? Califica abajo:</div>
+                </div>
+              </div>
+
+              <!-- Botones de Calificación Leitner -->
+              <div class="flashcard-rating-bar">
+                <button class="btn btn-danger btn-sm" id="btn-fc-hard">Difícil (Repetir pronto)</button>
+                <button class="btn btn-secondary btn-sm" id="btn-fc-good">Bien (En 3 días)</button>
+                <button class="btn btn-kind btn-sm" id="btn-fc-easy">Fácil (En 7 días)</button>
+              </div>
+
+              <div style="margin-top: 24px; text-align: center;">
+                <button class="btn btn-secondary btn-sm" id="btn-add-custom-flashcard">+ Añadir Nueva Flashcard</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 2: CUESTIONARIOS EXPLICADOS -->
+          <div id="tab-quiz" class="practice-tab-content" style="display: none; max-width: 800px; margin: 0 auto;">
+            <div class="quiz-question-box" id="quiz-container">
+              <!-- Renderizado dinámico del quiz -->
+            </div>
+          </div>
+
+          <!-- TAB 3: TALLER FEYNMAN -->
+          <div id="tab-feynman-studio" class="practice-tab-content" style="display: none; max-width: 800px; margin: 0 auto;">
+            <div class="card">
+              <h2 class="card-title"><span>💡</span> Taller Feynman: Explícaselo a un niño</h2>
+              <p style="font-size: 14px; color: var(--text-muted); margin: 6px 0 18px;">
+                Escribe un concepto que te cueste y redacta su explicación en palabras ultra sencillas. Si detectas que necesitas recurrir a palabras técnicas rebuscadas, esa es tu laguna a investigar.
+              </p>
+
+              <div class="form-group">
+                <label class="form-label" for="feynman-concept-input">Concepto o tema complejo:</label>
+                <input type="text" id="feynman-concept-input" class="form-control" placeholder="Ej: Dilatación temporal, Enlace covalente, La inflación monetaria">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="feynman-simple-text">Tu explicación sin tecnicismos (como si se lo contaras a un amigo en una servilleta):</label>
+                <textarea id="feynman-simple-text" class="form-control" rows="5" placeholder="Escribe aquí usando palabras cotidianas y metáforas visuales..."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="feynman-analogy-input">Analogía o ejemplo de la vida real:</label>
+                <input type="text" id="feynman-analogy-input" class="form-control" placeholder="Ej: Es como cuando inflas un globo y los puntos dibujados se alejan entre sí...">
+              </div>
+
+              <button class="btn btn-primary" id="btn-feynman-check">Comprobar y Guardar Explicación</button>
+              <div id="feynman-feedback-box" style="margin-top: 16px; display: none;"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             PANTALLA 8: MI PROGRESO
+             ========================================== -->
+        <section id="screen-progress" class="screen-view" aria-labelledby="progress-title">
+          <div class="page-header">
+            <div class="page-title-group">
+              <h1 id="progress-title">Seguimiento de Aprendizaje y Bienestar</h1>
+              <p>Métricas reales basadas en tu comprensión, no en horas interminables de agotamiento. Cero clasificaciones tóxicas ni penalizaciones por descansar.</p>
+            </div>
+          </div>
+
+          <div class="progress-header-grid">
+            <div class="stat-card">
+              <div class="stat-icon">⏱️</div>
+              <div>
+                <div class="stat-number" id="progress-focus-hours">1.9 h</div>
+                <div class="stat-label">Foco voluntario total</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon" style="background: rgba(139, 92, 246, 0.15); color: var(--color-secondary);">🗂️</div>
+              <div>
+                <div class="stat-number" id="progress-materials-count">4</div>
+                <div class="stat-label">Materiales generados</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon" style="background: rgba(16, 185, 129, 0.15); color: var(--color-success);">🎯</div>
+              <div>
+                <div class="stat-number" id="progress-quiz-score">85%</div>
+                <div class="stat-label">Acierto en autoevaluación</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon" style="background: rgba(6, 182, 212, 0.15); color: var(--color-accent-cyan);">🧠</div>
+              <div>
+                <div class="stat-number" id="progress-mastered-cards">3</div>
+                <div class="stat-label">Tarjetas consolidadas</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <!-- Métodos que mejor te han funcionado -->
+            <div class="card">
+              <div class="card-header">
+                <h2 class="card-title"><span>⭐</span> Tus Métodos con Mejor Resultado</h2>
+              </div>
+              <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 14px;">
+                Tus propias valoraciones tras ponerlos en práctica:
+              </p>
+              <div id="progress-top-methods-container">
+                <!-- Render dinámico -->
+              </div>
+            </div>
+
+            <!-- Registro de Bienestar Emocional Diario -->
+            <div class="card">
+              <div class="card-header">
+                <h2 class="card-title"><span>🧘</span> Check-in de Bienestar de Hoy</h2>
+              </div>
+              <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 14px;">
+                ¿Cómo te has sentido estudiando hoy? Registrar tus emociones ayuda a entender qué condiciones favorecen tu calma.
+              </p>
+              <div style="display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap;">
+                <button class="btn btn-secondary btn-sm mood-btn" data-mood="animado">🚀 Animado</button>
+                <button class="btn btn-secondary btn-sm mood-btn" data-mood="tranquilo">😌 Tranquilo</button>
+                <button class="btn btn-secondary btn-sm mood-btn" data-mood="neutro">😐 Neutro</button>
+                <button class="btn btn-secondary btn-sm mood-btn" data-mood="cansado">🥱 Cansado</button>
+                <button class="btn btn-secondary btn-sm mood-btn" data-mood="agobiado">😰 Agobiado</button>
+              </div>
+              <div class="form-group">
+                <input type="text" id="wellbeing-notes-input" class="form-control" placeholder="Anotación breve sobre qué ayudó o qué incomodó hoy (opcional)...">
+              </div>
+              <button class="btn btn-primary btn-sm" id="btn-save-wellbeing">Registrar Check-in</button>
+              <div id="wellbeing-status-msg" style="font-size: 13px; color: var(--color-success); margin-top: 8px; display: none;">¡Check-in guardado! Tu bienestar es lo primero.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             PANTALLA 9: CONFIGURACIÓN Y ACCESIBILIDAD
+             ========================================== -->
+        <section id="screen-settings" class="screen-view" aria-labelledby="settings-title">
+          <div class="page-header">
+            <div class="page-title-group">
+              <h1 id="settings-title">Configuración, Accesibilidad y Bienestar</h1>
+              <p>Personaliza tu experiencia visual, auditiva y de ritmo de estudio para proteger tu energía y reducir la fatiga visual.</p>
+            </div>
+          </div>
+
+          <div class="card" style="max-width: 850px; margin: 0 auto;">
+            <!-- Tema Visual -->
+            <div class="settings-group">
+              <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 12px; color: var(--text-main);">Aspecto Visual</h3>
+              <div class="settings-row">
+                <div class="settings-label">
+                  <h4>Tema de la Aplicación</h4>
+                  <p>Elige entre modo oscuro relajante, modo claro estructurado o modo de bajo estímulo.</p>
+                </div>
+                <div>
+                  <select id="setting-theme-select" class="form-control" style="width: 200px;">
+                    <option value="dark" selected>🌙 Modo Oscuro</option>
+                    <option value="light">☀️ Modo Claro</option>
+                    <option value="low_stimulus">🍃 Bajo Estímulo Visual</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="settings-row">
+                <div class="settings-label">
+                  <h4>Tamaño de Tipografía</h4>
+                  <p>Aumenta el tamaño del texto para una lectura más cómoda.</p>
+                </div>
+                <div>
+                  <select id="setting-font-size-select" class="form-control" style="width: 200px;">
+                    <option value="normal" selected>Mediano (Estándar)</option>
+                    <option value="large">Grande (18px)</option>
+                    <option value="xlarge">Extra Grande (20px)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="settings-row">
+                <div class="settings-label">
+                  <h4>Modo Alto Contraste</h4>
+                  <p>Refuerza los bordes y el contraste de colores para mayor claridad óptica.</p>
+                </div>
+                <label class="toggle-switch">
+                  <input type="checkbox" id="setting-high-contrast-toggle">
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+
+              <div class="settings-row">
+                <div class="settings-label">
+                  <h4>Reducir Animaciones</h4>
+                  <p>Minimiza movimientos y transiciones para evitar distracciones visuales.</p>
+                </div>
+                <label class="toggle-switch">
+                  <input type="checkbox" id="setting-reduced-motion-toggle">
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Síntesis de Voz (TTS) -->
+            <div class="settings-group">
+              <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 12px; color: var(--text-main);">Locución y Voz (TTS)</h3>
+              <div class="settings-row">
+                <div class="settings-label">
+                  <h4>Velocidad de Lectura en Voz Alta</h4>
+                  <p>Ajusta el ritmo al reproducir resúmenes y guiones de podcast.</p>
+                </div>
+                <div>
+                  <select id="setting-tts-speed" class="form-control" style="width: 200px;">
+                    <option value="0.8">0.8x (Pausado)</option>
+                    <option value="1.0" selected>1.0x (Normal)</option>
+                    <option value="1.25">1.25x (Dinámico)</option>
+                    <option value="1.5">1.5x (Rápido)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bienestar y Apoyo Neurodivergente -->
+            <div>
+              <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 12px; color: var(--text-main);">Compromiso de Bienestar de Mindu</h3>
+              <div class="profile-disclaimer-box" style="margin-top: 0;">
+                <p><strong>Nota importante sobre salud y aprendizaje:</strong></p>
+                <p style="margin-top: 6px;">
+                  Mindu es una herramienta pedagógica diseñada para ayudarte a encontrar tus mejores estrategias de estudio. No emitimos diagnósticos de TDAH, dislexia ni ninguna otra condición.
+                </p>
+                <p style="margin-top: 6px;">
+                  Si experimentas dificultades persistentes de atención, ansiedad severa o fatiga constante que afecten tu vida cotidiana, te sugerimos conversar con un orientador escolar, tutor universitario o profesional de salud de confianza. Recuerda: pedir apoyo es una decisión inteligente y valiente.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- MODAL: DETALLE DEL MÉTODO DE ESTUDIO -->
+  <div class="modal-overlay" id="modal-method-detail" role="dialog" aria-modal="true" aria-labelledby="modal-method-title">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div>
+          <span class="academic-tag" id="modal-method-cat">Categoría</span>
+          <h2 id="modal-method-title" style="font-size: 20px; font-weight: 800; color: var(--text-main); margin-top: 4px;">Nombre del Método</h2>
+        </div>
+        <button class="btn btn-secondary btn-sm" id="btn-close-method-modal" aria-label="Cerrar modal">✕</button>
+      </div>
+      <div class="modal-body" id="modal-method-body">
+        <!-- Contenido dinámico -->
+      </div>
+      <div class="modal-footer">
+        <div style="font-size: 13px; color: var(--text-muted);" id="modal-method-time">⏱️ 15 - 30 min</div>
+        <div style="display: flex; gap: 8px;">
+          <button class="btn btn-secondary btn-sm" id="btn-rate-method-helpful">⭐ Me sirvió</button>
+          <button class="btn btn-primary btn-sm" id="btn-apply-method-now">Probar con un Tema</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: EVALUACIÓN INICIAL INTERACTIVA -->
+  <div class="modal-overlay" id="modal-assessment" role="dialog" aria-modal="true" aria-labelledby="modal-assessment-title">
+    <div class="modal-container" style="max-width: 750px;">
+      <div class="modal-header">
+        <div>
+          <span class="academic-tag">Diagnóstico de Estudio</span>
+          <h2 id="modal-assessment-title" style="font-size: 18px; font-weight: 700; color: var(--text-main); margin-top: 4px;">
+            Evaluación Inicial de Necesidades
+          </h2>
+        </div>
+        <button class="btn btn-secondary btn-sm" id="btn-close-assessment-modal" aria-label="Cerrar evaluación">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="assessment-progress-bar">
+          <div class="assessment-progress-fill" id="assessment-progress-bar" style="width: 11%;"></div>
+        </div>
+        <div id="assessment-question-container">
+          <!-- Render dinámico de preguntas -->
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary btn-sm" id="btn-assessment-prev" disabled>Anterior</button>
+        <span style="font-size: 12px; font-family: var(--font-mono); color: var(--text-dim);" id="assessment-step-indicator">Pregunta 1 de 9</span>
+        <button class="btn btn-primary btn-sm" id="btn-assessment-next">Siguiente</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: AÑADIR NUEVA TAREA AL PLANIFICADOR -->
+  <div class="modal-overlay" id="modal-add-task" role="dialog" aria-modal="true" aria-labelledby="modal-add-task-title">
+    <div class="modal-container" style="max-width: 500px;">
+      <div class="modal-header">
+        <h2 id="modal-add-task-title" style="font-size: 18px; font-weight: 700; color: var(--text-main);">Nueva Tarea Pequeña</h2>
+        <button class="btn btn-secondary btn-sm" id="btn-close-task-modal">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label" for="task-input-title">Descripción de la micro-tarea:</label>
+          <input type="text" id="task-input-title" class="form-control" placeholder="Ej: Leer 3 páginas del capítulo 2">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="task-input-subject">Materia:</label>
+          <input type="text" id="task-input-subject" class="form-control" placeholder="Ej: Historia, Biología, Matemáticas">
+        </div>
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="form-label" for="task-input-minutes">Minutos estimados:</label>
+            <input type="number" id="task-input-minutes" class="form-control" value="20" min="5" max="180">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="task-input-energy">Energía requerida:</label>
+            <select id="task-input-energy" class="form-control">
+              <option value="baja">Baja</option>
+              <option value="media" selected>Media</option>
+              <option value="alta">Alta</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer" style="justify-content: flex-end; gap: 8px;">
+        <button class="btn btn-secondary btn-sm" id="btn-cancel-task">Cancelar</button>
+        <button class="btn btn-primary btn-sm" id="btn-confirm-add-task">Guardar Tarea</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: AÑADIR EXAMEN -->
+  <div class="modal-overlay" id="modal-add-exam" role="dialog" aria-modal="true" aria-labelledby="modal-add-exam-title">
+    <div class="modal-container" style="max-width: 500px;">
+      <div class="modal-header">
+        <h2 id="modal-add-exam-title" style="font-size: 18px; font-weight: 700; color: var(--text-main);">Añadir Examen o Entrega</h2>
+        <button class="btn btn-secondary btn-sm" id="btn-close-exam-modal">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label" for="exam-input-title">Nombre del examen o entrega:</label>
+          <input type="text" id="exam-input-title" class="form-control" placeholder="Ej: Parcial de Geometría">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="exam-input-subject">Materia:</label>
+          <input type="text" id="exam-input-subject" class="form-control" placeholder="Ej: Matemáticas">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="exam-input-date">Fecha del examen:</label>
+          <input type="date" id="exam-input-date" class="form-control">
+        </div>
+      </div>
+      <div class="modal-footer" style="justify-content: flex-end; gap: 8px;">
+        <button class="btn btn-secondary btn-sm" id="btn-cancel-exam">Cancelar</button>
+        <button class="btn btn-primary btn-sm" id="btn-confirm-add-exam">Guardar Fecha</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS EN ORDEN MODULAR -->
+  <script src="js/methods-data.js"></script>
+  <script src="js/assessment.js"></script>
+  <script src="js/converter.js"></script>
+  <script src="js/concentration.js"></script>
+  <script src="js/practice.js"></script>
+  <script src="js/planner.js"></script>
+  <script src="js/progress.js"></script>
+  <script src="js/accessibility.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
